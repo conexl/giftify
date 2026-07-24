@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "giftify"
+version = "0.1.0"
+description = "Telegram gift auto-buying backend and mini app"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.115",
+    "httpx>=0.28",
+    "socksio>=1.0",
+    "pydantic>=2.10",
+    "pydantic-settings>=2.7",
+    "pyrogram>=2.0.106",
+    "tgcrypto>=1.2.5",
+    "uvicorn>=0.34",
+]
+
+[project.scripts]
+giftify-worker = "giftify.worker_main:run"
+giftify-login = "giftify.session_login:main"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3",
+    "pytest-asyncio>=0.24",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+giftify = ["static/*"]

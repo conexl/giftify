@@ -1,0 +1,9 @@
+fastapi>=0.115
+httpx>=0.28
+socksio>=1.0
+pydantic>=2.10
+pydantic-settings>=2.7
+pyrogram>=2.0.106
+tgcrypto>=1.2.5
+pycryptodome>=3.20
+uvicorn>=0.34
